@@ -1,0 +1,94 @@
+/* Waxzad Tech Studio — design tokens */
+:root {
+  --paper: #F5F6FA;
+  --ink: #12163A;
+  --cobalt: #2F45D8;
+  --cobalt-deep: #1F2FA6;
+  --saffron: #F0B23B;
+  --mint: #4FD1A1;
+  --slate: #565D80;
+  --line: #D9DCE8;
+
+  --font-display: 'Bricolage Grotesque Variable', system-ui, sans-serif;
+  --font-body: 'Instrument Sans Variable', system-ui, sans-serif;
+
+  /* modular scale, ratio 1.25 */
+  --step--1: 0.875rem;
+  --step-0: 1.0625rem;
+  --step-1: 1.33rem;
+  --step-2: 1.66rem;
+  --step-3: clamp(1.9rem, 1.4rem + 2vw, 2.6rem);
+  --step-5: clamp(2.6rem, 1.4rem + 5.2vw, 5.4rem);
+
+  --wrap: 72rem;
+  --gutter: clamp(1.25rem, 4vw, 2.5rem);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--step-0);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+img, svg { display: block; max-width: 100%; }
+a { color: inherit; }
+h1, h2, h3 {
+  font-family: var(--font-display);
+  line-height: 1.05;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+p { margin: 0; }
+
+:focus-visible {
+  outline: 3px solid var(--saffron);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.skip {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  background: var(--saffron);
+  color: var(--ink);
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  z-index: 10;
+}
+.skip:focus { top: 1rem; }
+
+.wrap {
+  max-width: var(--wrap);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0.85rem 1.35rem;
+  border-radius: 999px;
+  border: 2px solid transparent;
+  transition: background-color 0.15s, color 0.15s, border-color 0.15s;
+}
+.button--light { background: var(--paper); color: var(--cobalt-deep); }
+.button--light:hover { background: var(--saffron); color: var(--ink); }
+.button--ghost { border-color: rgba(245, 246, 250, 0.45); color: var(--paper); }
+.button--ghost:hover { border-color: var(--paper); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-delay: 0ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}

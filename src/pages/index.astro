@@ -1,0 +1,376 @@
+---
+import Base from '../layouts/Base.astro';
+
+// Contact details — replace with the real ones
+const email = 'hello@waxzad.com';
+
+const workbench = [
+  { name: 'Waxzad Relay', what: 'WhatsApp chat button and inbox for WordPress', status: 'Built for Waayan', tone: 'live' },
+  { name: 'Waxzad Anti-Theft Shield', what: 'Stops product photos being copied or screenshotted', status: 'Built for Waayan', tone: 'live' },
+  { name: 'ERPNext for retail', what: 'Stock, sales and accounts across three branches', status: 'Setting up', tone: 'progress' },
+  { name: 'Waxzad AI', what: 'Create and edit images and video on your own computer', status: 'In development', tone: 'later' },
+];
+
+const services = [
+  {
+    title: 'Websites',
+    body: 'Fast company sites and online shops, built so you can update products, prices and pages yourself.',
+    for: 'shops, brands and service businesses',
+  },
+  {
+    title: 'WordPress plugins',
+    body: 'Ready-made plugins you can download, and custom plugins for the one job your site needs done.',
+    for: 'WooCommerce stores and WordPress sites',
+  },
+  {
+    title: 'ERP and CRM',
+    body: 'ERPNext and Frappe CRM set up around how your business works: stock, branches, invoices, customers and follow-ups.',
+    for: 'retail, trading and distribution companies',
+  },
+  {
+    title: 'AI for images and video',
+    body: 'An open-source app for making and editing product photos and videos, running on your own machine.',
+    for: 'online sellers and content teams',
+  },
+];
+
+const steps = [
+  { title: 'Talk', body: 'A free call about what slows your business down and what you want fixed.' },
+  { title: 'Plan and quote', body: 'A written plan with a fixed price and a delivery date, before any work starts.' },
+  { title: 'Build', body: 'You see working versions as we go and can change direction early.' },
+  { title: 'Launch and support', body: 'We go live with you, train your team, and stay on a monthly support plan if you want one.' },
+];
+---
+<Base
+  title="Waxzad Tech Studio — websites, plugins, ERP and AI tools"
+  description="Waxzad Tech Studio builds websites, WordPress plugins, ERP and CRM systems, and AI tools for images and video — tested first in our own retail business."
+>
+  <header class="hero">
+    <nav class="nav wrap" aria-label="Main">
+      <a class="logo" href="/">
+        <img src="/favicon.svg" alt="" width="32" height="32" />
+        <span>Waxzad</span>
+      </a>
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#workbench">Products</a></li>
+        <li><a href="#process">How we work</a></li>
+        <li><a class="nav-cta" href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="hero-body wrap">
+      <div class="hero-copy">
+        <h1>Software that runs real shops.</h1>
+        <p class="lede">
+          Waxzad Tech Studio builds websites, WordPress plugins, ERP and CRM systems, and AI tools
+          for images and video. Everything we sell, we use first in our own retail business — three
+          branches in the UAE.
+        </p>
+        <div class="hero-actions">
+          <a class="button button--light" href="#contact">Start a project</a>
+          <a class="button button--ghost" href="#workbench">See our products</a>
+        </div>
+      </div>
+
+      <section id="workbench" class="bench" aria-labelledby="bench-title">
+        <h2 id="bench-title" class="bench-title">On the workbench</h2>
+        <ul>
+          {workbench.map((item, i) => (
+            <li style={`--i:${i}`}>
+              <div>
+                <h3>{item.name}</h3>
+                <p>{item.what}</p>
+              </div>
+              <span class={`status status--${item.tone}`}>{item.status}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+    </div>
+  </header>
+
+  <main id="main">
+    <section id="services" class="services wrap" aria-labelledby="services-title">
+      <h2 id="services-title">What we build</h2>
+      <div class="service-list">
+        {services.map((s) => (
+          <article class="service">
+            <h3>{s.title}</h3>
+            <p>{s.body}</p>
+            <p class="for">For {s.for}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="proof">
+      <div class="wrap proof-inner">
+        <h2>Tested on our own counter first</h2>
+        <p>
+          Waxzad grew out of <a href="https://waayan.ae">Waayan</a>, a premium kitchen and houseware
+          retailer with three branches in the UAE. When the shop needed a WhatsApp inbox, image
+          protection or stock control across branches, we built it. What works there becomes a
+          Waxzad product.
+        </p>
+      </div>
+    </section>
+
+    <section id="process" class="process wrap" aria-labelledby="process-title">
+      <h2 id="process-title">How a project runs</h2>
+      <ol>
+        {steps.map((s) => (
+          <li>
+            <h3>{s.title}</h3>
+            <p>{s.body}</p>
+          </li>
+        ))}
+      </ol>
+    </section>
+
+    <section id="contact" class="contact" aria-labelledby="contact-title">
+      <div class="wrap contact-inner">
+        <h2 id="contact-title">Tell us what you need built.</h2>
+        <p>Send a few lines about your business and the problem. We reply within one working day.</p>
+        <a class="button button--light" href={`mailto:${email}`}>Email {email}</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer wrap">
+    <p>© {new Date().getFullYear()} Waxzad Tech Studio</p>
+    <a href={`mailto:${email}`}>{email}</a>
+  </footer>
+</Base>
+
+<style>
+  /* ---------- Hero ---------- */
+  .hero {
+    background: var(--cobalt);
+    color: var(--paper);
+    padding-bottom: clamp(3rem, 8vw, 6rem);
+  }
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 1.25rem;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    text-decoration: none;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: var(--step-1);
+    letter-spacing: -0.02em;
+  }
+  .logo img { border-radius: 8px; box-shadow: 0 0 0 1.5px rgba(245, 246, 250, 0.5); }
+  .nav ul {
+    display: flex;
+    gap: clamp(0.75rem, 2.5vw, 2rem);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-weight: 500;
+  }
+  .nav a { text-decoration: none; }
+  .nav ul a:hover { text-decoration: underline; text-underline-offset: 4px; }
+  .nav-cta {
+    padding: 0.4rem 0.95rem;
+    border-radius: 999px;
+    background: var(--paper);
+    color: var(--cobalt-deep);
+  }
+
+  .hero-body {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    gap: clamp(2.5rem, 6vw, 5rem);
+    align-items: end;
+    padding-top: clamp(3rem, 9vw, 7rem);
+  }
+  h1 {
+    font-size: var(--step-5);
+    font-weight: 750;
+    font-variation-settings: 'wdth' 85;
+    letter-spacing: -0.035em;
+    line-height: 0.95;
+    max-width: 11ch;
+  }
+  .lede {
+    margin-top: 1.75rem;
+    max-width: 36rem;
+    font-size: var(--step-1);
+    line-height: 1.5;
+    color: rgba(245, 246, 250, 0.86);
+  }
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 2.25rem;
+  }
+
+  /* The workbench: the one bold element */
+  .bench {
+    background: var(--ink);
+    border-radius: 18px;
+    padding: 1.5rem 1.5rem 0.5rem;
+    box-shadow: 0 30px 60px -30px rgba(10, 14, 50, 0.7);
+  }
+  .bench-title {
+    font-size: var(--step-0);
+    font-weight: 600;
+    letter-spacing: 0;
+    color: rgba(245, 246, 250, 0.6);
+    padding-bottom: 0.75rem;
+  }
+  .bench ul { list-style: none; margin: 0; padding: 0; }
+  .bench li {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    padding-block: 1rem;
+    border-top: 1px solid rgba(245, 246, 250, 0.12);
+    animation: settle 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+    animation-delay: calc(0.25s + var(--i) * 0.12s);
+  }
+  .bench h3 {
+    font-size: var(--step-1);
+    font-weight: 650;
+    letter-spacing: -0.01em;
+  }
+  .bench p {
+    margin-top: 0.25rem;
+    font-size: var(--step--1);
+    color: rgba(245, 246, 250, 0.68);
+  }
+  .status {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: var(--step--1);
+    font-weight: 600;
+    white-space: nowrap;
+    padding-top: 0.3rem;
+  }
+  .status::before {
+    content: '';
+    width: 0.55rem;
+    height: 0.55rem;
+    border-radius: 50%;
+    background: currentColor;
+  }
+  .status--live { color: var(--mint); }
+  .status--progress { color: var(--saffron); }
+  .status--later { color: rgba(245, 246, 250, 0.55); }
+
+  @keyframes settle {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: none; }
+  }
+
+  /* ---------- Services ---------- */
+  .services { padding-block: clamp(4rem, 10vw, 7rem); }
+  .services > h2,
+  .process > h2 { font-size: var(--step-3); }
+  .service-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: clamp(2rem, 6vw, 5rem);
+    margin-top: 2.5rem;
+  }
+  .service {
+    padding-block: 1.75rem;
+    border-top: 2px solid var(--ink);
+  }
+  .service h3 { font-size: var(--step-2); }
+  .service p { margin-top: 0.6rem; max-width: 34rem; }
+  .service .for { color: var(--slate); font-size: var(--step--1); margin-top: 0.9rem; }
+
+  /* ---------- Proof ---------- */
+  .proof { background: #E7E9F4; }
+  .proof-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+    gap: clamp(1.5rem, 5vw, 4rem);
+    padding-block: clamp(3.5rem, 8vw, 5.5rem);
+  }
+  .proof h2 { font-size: var(--step-3); max-width: 14ch; }
+  .proof p { font-size: var(--step-1); line-height: 1.5; max-width: 38rem; }
+  .proof a { color: var(--cobalt-deep); text-underline-offset: 3px; }
+
+  /* ---------- Process ---------- */
+  .process { padding-block: clamp(4rem, 10vw, 7rem); }
+  .process ol {
+    list-style: none;
+    counter-reset: step;
+    margin: 2.5rem 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+  .process li { counter-increment: step; }
+  .process li::before {
+    content: counter(step);
+    display: grid;
+    place-items: center;
+    width: 2.4rem;
+    height: 2.4rem;
+    border-radius: 50%;
+    background: var(--cobalt);
+    color: var(--paper);
+    font-family: var(--font-display);
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+  .process h3 { font-size: var(--step-1); }
+  .process p { margin-top: 0.4rem; color: var(--slate); }
+
+  /* ---------- Contact ---------- */
+  .contact { background: var(--cobalt); color: var(--paper); }
+  .contact-inner { padding-block: clamp(4rem, 10vw, 6.5rem); }
+  .contact h2 {
+    font-size: var(--step-5);
+    font-weight: 750;
+    font-variation-settings: 'wdth' 85;
+    letter-spacing: -0.035em;
+    line-height: 0.95;
+    max-width: 14ch;
+  }
+  .contact p {
+    margin-block: 1.5rem 2rem;
+    font-size: var(--step-1);
+    color: rgba(245, 246, 250, 0.86);
+    max-width: 34rem;
+  }
+
+  /* ---------- Footer ---------- */
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding-block: 2rem;
+    color: var(--slate);
+    font-size: var(--step--1);
+  }
+
+  /* ---------- Small screens ---------- */
+  @media (max-width: 860px) {
+    .hero-body,
+    .proof-inner { grid-template-columns: 1fr; }
+    .process ol { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 600px) {
+    .nav ul li:not(:last-child) { display: none; }
+    .service-list,
+    .process ol { grid-template-columns: 1fr; }
+    .bench li { flex-direction: column; gap: 0.5rem; }
+  }
+</style>
