@@ -1,0 +1,47 @@
+
+/* ===== Inner pages: rows, lists, tags (Services, Products, Work, Contact) ===== */
+.is-layout-constrained > .wx-actions { margin-left: calc((100% - min(100%, 1150px)) / 2) !important; margin-right: auto !important; }
+.wx-row { border-top: 2px solid var(--wx-ink); padding: 2.25rem 0 !important; margin: 0 !important; }
+.wx-row:last-child { border-bottom: 2px solid var(--wx-ink); }
+.wx-row-cols { column-gap: clamp(2rem, 6vw, 5rem) !important; margin: 0 !important; }
+.wx-row-title { font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2rem) !important; line-height: 1.1 !important; }
+.wx-row-desc { margin-top: 0.75rem !important; font-size: 1.1rem; line-height: 1.55; max-width: 32rem; }
+.wx-row-desc a { color: var(--wx-cobalt-deep); }
+
+.wx-include { list-style: none; padding: 0 !important; margin: 0 !important; }
+.wx-include li { position: relative; padding: 0.7rem 0 0.7rem 1.9rem; border-bottom: 1px solid #D9DCE8; }
+.wx-include li:first-child { padding-top: 0.2rem; }
+.wx-include li:first-child::before { top: 0.55rem; }
+.wx-include li::before {
+  content: ''; position: absolute; left: 0; top: 1.05rem;
+  width: 0.95rem; height: 0.55rem;
+  border-left: 2.5px solid var(--wx-cobalt); border-bottom: 2.5px solid var(--wx-cobalt);
+  transform: rotate(-45deg);
+}
+
+.wx-tag {
+  display: inline-flex; align-items: center; gap: 0.45rem;
+  margin-top: 1rem !important; font-size: 0.875rem; font-weight: 600;
+}
+.wx-tag::before { content: ''; width: 0.55rem; height: 0.55rem; border-radius: 50%; background: currentColor; }
+.wx-tag-live { color: #13865E; }
+.wx-tag-progress { color: #A86A00; }
+.wx-tag-later { color: var(--wx-slate); }
+
+.wx-row-actions { margin-top: 1.5rem !important; }
+.wx-btn-solid .wp-block-button__link {
+  background: var(--wx-cobalt) !important; color: var(--wx-paper) !important;
+  border-radius: 999px !important; padding: 0.75rem 1.25rem !important; font-weight: 600; font-size: 0.95rem;
+}
+.wx-btn-solid .wp-block-button__link:hover { background: var(--wx-cobalt-deep) !important; }
+
+.wx-contact-list { list-style: none; padding: 0 !important; margin: 1.5rem 0 0 !important; font-size: 1.1rem; }
+.wx-contact-list li { padding: 0.8rem 0; border-bottom: 1px solid #D9DCE8; }
+.wx-contact-list a { color: var(--wx-cobalt-deep); font-weight: 600; }
+.wx-section .wx-row-cols .wx-h2 { font-size: clamp(1.6rem, 1.3rem + 1.2vw, 2.1rem) !important; }
+.wx-proof .wx-row-desc { max-width: 40rem; }
+
+@media (max-width: 781px) {
+  .wx-row-cols > .wp-block-column { flex-basis: 100% !important; }
+  .wx-row-cols { row-gap: 1.5rem; }
+}
